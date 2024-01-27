@@ -13,4 +13,4 @@ A clone of the productivity chrome app [Momentum](https://chrome.google.com/webs
 
 ## Try it out
 
-[https://theluna.github.io/ToDoList/](https://theluna.github.io/ToDoList/)
+https://theluna.github.io/ToDoList/
