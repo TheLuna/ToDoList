@@ -98,6 +98,7 @@ input:active {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 50px;
 }
 
 /* weather */
