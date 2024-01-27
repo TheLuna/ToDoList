@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <section class="top">
+      <div id="worldTime"></div>
+    </section>
+    <section class="center">
+      <h1 id="date"></h1>
+      <h2 id="clock"></h2>
+      <form id="login-form" class="hidden">
+        <input
+          id="loginFormInput"
+          type="text"
+          maxlength="15"
+          placeholder="What is your name?"
+          required
+        />
+      </form>
+      <div class="greetingContainer">
+        <h4 id="greeting" class="hidden"></h4>
+        <button id="btnLogout" class="hidden">X</button>
+      </div>
+      <form id="todo-form">
+        <input
+          type="text"
+          id="toDoInput"
+          placeholder="Write a To Do"
+          required
+        />
+      </form>
+      <form id="todo-edit-form" class="hidden">
+        <input type="text" id="toDoEditInput" placeholder="Editing..." />
+        <input type="button" id="btnClearToDo" value="X" />
+      </form>
+      <ul id="todo-list"></ul>
+    </section>
+    <section class="bottom">
+      <div id="quote"><span></span></div>
+    </section>
+    <div id="weather"><span></span><span></span></div>
+    <script src="js/clock.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/greetings.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/quotes.js"></script>
+  </body>
+</html>
