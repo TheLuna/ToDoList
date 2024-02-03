@@ -6,6 +6,7 @@ const toDoList = document.getElementById("todo-list");
 const btnClearToDo = document.getElementById("btnClearToDo");
 const TODOS_KEY = "todos";
 let toDos = [];
+const CHECKED_CLASSNAME = "checked";
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
@@ -13,6 +14,19 @@ if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
+}
+
+function checkedToDo(event) {
+  const li = event.target.parentElement;
+  li.classList.toggle(CHECKED_CLASSNAME);
+
+  const toDoInLocalStorage = toDos.filter(
+    (toDo) => toDo.id == parseInt(li.id)
+  )[0];
+  if (toDoInLocalStorage.checked) toDoInLocalStorage.checked = false;
+  else toDoInLocalStorage.checked = true;
+
+  saveToDos();
 }
 
 function deleteToDo(event) {
@@ -66,13 +80,23 @@ function saveToDos() {
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
+
   const span = document.createElement("span");
   span.innerText = newTodo.text;
-  const btn = document.createElement("button");
-  btn.innerText = "X";
-  btn.addEventListener("click", deleteToDo);
+
+  const btnCheck = document.createElement("button");
+  btnCheck.innerText = "✔";
+  btnCheck.addEventListener("click", checkedToDo);
+
+  const btnDelete = document.createElement("button");
+  btnDelete.innerText = "X";
+  btnDelete.addEventListener("click", deleteToDo);
+
+  if (newTodo.checked) li.classList.add(CHECKED_CLASSNAME);
+
   li.appendChild(span);
-  li.appendChild(btn);
+  li.appendChild(btnCheck);
+  li.appendChild(btnDelete);
   toDoList.appendChild(li);
   li.children[0].addEventListener("click", EditToDo);
 }
@@ -84,6 +108,7 @@ function handleToDoSubmit(event) {
   const newTodoObj = {
     id: Date.now(),
     text: newTodo,
+    checked: false,
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
