@@ -8,10 +8,11 @@
     <title>To Do List</title>
   </head>
   <body>
-    <section class="top">
+    <header>
       <div id="worldTime"></div>
-    </section>
-    <section class="center">
+      <div id="weather"><span></span><span></span></div>
+    </header>
+    <main>
       <h1 id="date"></h1>
       <h2 id="clock"></h2>
       <form id="login-form" class="hidden">
@@ -40,11 +41,10 @@
         <input type="button" id="btnClearToDo" value="X" />
       </form>
       <ul id="todo-list"></ul>
-    </section>
-    <section class="bottom">
+    </main>
+    <fotter>
       <div id="quote"><span></span></div>
-    </section>
-    <div id="weather"><span></span><span></span></div>
+    </fotter>
     <script src="js/clock.js"></script>
     <script src="js/background.js"></script>
     <script src="js/greetings.js"></script>
