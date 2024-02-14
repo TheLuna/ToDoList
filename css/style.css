@@ -7,12 +7,13 @@ html {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 html {
   overflow: hidden;
   background: #000000;
+  font-size: 62.5%;
 }
 
 h1,
@@ -30,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 1.6rem;
 }
 
 @keyframes fadeIn {
@@ -64,24 +66,27 @@ input:active {
 }
 
 /* bg */
-.bgImage {
+img {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: -1;
   opacity: 0.4;
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
 }
 
-.top {
+header {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #worldTime {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 #worldTime span {
@@ -94,20 +99,17 @@ input:active {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.center {
+main {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
 }
 
-/* weather */
 #weather {
-  position: absolute;
   font-style: italic;
-  font-size: 12px;
-  top: 25px;
-  right: 40px;
+  font-size: 1.2rem;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -120,12 +122,12 @@ input:active {
 
 /* clock */
 #date {
-  font-size: 30px;
+  font-size: 3rem;
   opacity: 0.8;
 }
 
 #clock {
-  font-size: 5em;
+  font-size: 8rem;
 }
 
 /* Greetings */
@@ -133,7 +135,7 @@ input:active {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 34px;
+  font-size: 3.4rem;
   padding-top: 7px;
   padding-bottom: 25px;
 }
@@ -154,7 +156,7 @@ input:active {
 #toDoEditInput,
 #toDoInput,
 #loginFormInput {
-  width: 400px;
+  width: 40rem;
 }
 
 #todo-list {
@@ -167,7 +169,7 @@ input:active {
 }
 
 #todo-list li {
-  font-size: 22px;
+  font-size: 2.2rem;
   list-style: circle;
 }
 
@@ -201,12 +203,62 @@ li span:hover,
   opacity: 0.7;
 }
 
-.bottom {
+fotter {
   opacity: 0.7;
   position: absolute;
   bottom: 25px;
+  margin: auto 13px;
 }
 
 .checked {
   text-decoration: line-through;
+}
+
+@media screen and (max-width: 500px) {
+  #worldTime {
+    font-size: 3.2vw;
+    gap: 3vw;
+  }
+
+  #date {
+    font-size: 6vw;
+  }
+
+  #clock {
+    font-size: 16vw;
+  }
+
+  .greetingContainer {
+    font-size: 6.8vw;
+  }
+
+  #toDoEditInput,
+  #toDoInput,
+  #loginFormInput,
+  #todo-list {
+    width: 80vw;
+  }
+
+  #todo-list li,
+  #toDoInput,
+  #toDoEditInput,
+  #loginFormInput {
+    font-size: 4.4vw;
+  }
+
+  fotter {
+    font-size: 3.2vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #worldTime {
+    flex-direction: column;
+  }
+
+  #toDoEditInput,
+  #toDoInput,
+  #loginFormInput {
+    width: 70vw;
+  }
 }
